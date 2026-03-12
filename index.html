@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunflower Farm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button id="adminBtn" onclick="openAdmin()">👤</button>
+
+    <div class="container">
+        <img src="/logo.svg" id="logo" alt="Sunflower Logo">
+
+        <button class="menu-btn" onclick="alert('Chào mừng bạn đến với Sunflower Camping!')">
+            GIỚI THIỆU
+        </button>
+
+        <button class="menu-btn" onclick="location.href='/order'">
+            ĐẶT BÀN
+        </button>
+
+        <button class="menu-btn" onclick="window.open('https://maps.app.goo.gl/HGNoZRLmVZTzR4sEA')">
+            CHỈ ĐƯỜNG
+        </button>
+
+        <div class="contact">
+            <a href="tel:0944421177" class="contact-circle">📞</a>
+            <a href="https://zalo.me/0944421177" class="contact-circle">💬</a>
+        </div>
+    </div>
+
+    <div id="adminPopup">
+        <div class="popup-box">
+            <h3>Admin Login</h3>
+            <input type="password" id="adminPass" placeholder="Password">
+            <br>
+            <button onclick="loginAdmin()">Login</button>
+            <button onclick="closeAdmin()" class="cancel-btn">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        function openAdmin(){
+            document.getElementById("adminPopup").style.display = "flex";
+        }
+        function closeAdmin(){
+            document.getElementById("adminPopup").style.display = "none";
+        }
+        function loginAdmin(){
+            const pass = document.getElementById("adminPass").value;
+            if(pass === "1234"){
+                sessionStorage.setItem("admin","true");
+                alert("Admin mode enabled");
+                closeAdmin();
+            } else {
+                alert("Sai mật khẩu");
+            }
+        }
+    </script>
+</body>
+</html>
